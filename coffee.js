@@ -67,7 +67,7 @@ $('.btn-lg.btn-outline-primary.bt-menu-mch').click(function(){
         (ord_qty*indegrideance[btn_mch].watter) <= supply.chocolate
     ){
         console.log(btn_mch);
-        sum_order[btn_mch] += 1;
+        sum_order[btn_mch] += ord_qty*1;
         consume_supply.coffee += ord_qty * indegrideance[btn_mch].coffee;
         consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_s;
         consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_f;
