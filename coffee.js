@@ -93,7 +93,7 @@ $('.btn-lg.btn-outline-primary.bt-menu-mch').click(function(){
         $('#input-order-qty').val(1);
     } else {
          $('#display-status').bootstrapTable('removeAll');
-         table_status.push({status: "can't order " + ord_qty + btn_mch + ' not enough indegrideance'});
+         table_status.push({status: "can't order " + ord_qty + " " + btn_mch.replace("_"," ") + " not enough indegrideance"});
          $('#display-status').bootstrapTable('load',table_status );
     }
     setTimeout(remove_active,500,this);
