@@ -90,6 +90,7 @@ $('.btn-lg.btn-outline-primary.bt-menu-mch').click(function(){
         init_progress_bar();
         //$('#display-status').bootstrapTable('removeAll');
         $('#display-status').bootstrapTable('load',table_status );
+        $('#input-order-qty').val(1);
     } else {
          $('#display-status').bootstrapTable('removeAll');
          table_status.push({status: "can't order " + ord_qty + btn_mch + ' not enough indegrideance'});
