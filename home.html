@@ -108,10 +108,16 @@
         <div class="col-md-2">
         </div>
       </div>
-      <div class="row text-center">
-        <main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
-          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div class="row border-bottom">
+        <main class="col-md-5 ms-sm-auto col-lg-5 px-md-4 ">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
             <h4 class="h4 text-center">Order Drinks</h4>
+          </div>
+        </main>
+        <main class="col-md-7 ms-sm-auto col-lg-7 px-md-4">
+          <div class="text-start d-flex flex-wrap flex-md-nowrap pt-3 pb-2 mb-3">
+            <h4 style="margin-right: 14px;">Order QTY </h4>
+            <input type="number" id="input-order-qty" min="0" step="1" max="5" value="1" data-bind="value:replyNumber" />
           </div>
         </main>
       </div>
