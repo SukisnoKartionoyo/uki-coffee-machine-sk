@@ -32,7 +32,7 @@ var consume_supply ={
     chocolate : 0
 };
 
-var table_status = [];
+var table_status = [{status :'Ready for order'}];
 
 $( document ).ready(function() {
     init_table();
@@ -203,7 +203,9 @@ function init_table(){
             field: 'status',
             title: 'status'
           }],
-          data:[]
+          data:[
+              { status : 'Ready for order' }
+          ]
         });
 }
 
@@ -288,6 +290,8 @@ function pre_data_table_consume (){
 
 function init_btn_mch() {
     $('#display-status').bootstrapTable('removeAll');
+    if (table_status.length == 0 ) { table_status = [{status :'Ready for order'}]; }
+    $('#display-status').bootstrapTable('load',table_status );
     Object.keys(indegrideance).forEach(key => {
         var btn_name = key;
         console.log(key);        // the name of the current key.
