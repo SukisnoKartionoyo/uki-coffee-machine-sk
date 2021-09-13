@@ -66,41 +66,47 @@ $('.btn.btn-outline-primary.btn-supplay').click(function(){
 $('.btn-lg.btn-outline-primary.bt-menu-mch').click(function(){
     var btn_mch =$(this).attr('btn-coffe');
     var ord_qty = $('#input-order-qty').val();
-    if( 
-        (ord_qty*indegrideance[btn_mch].coffee) <= supply.coffee && 
-        (ord_qty*indegrideance[btn_mch].milk) <= supply.milk && 
-        (ord_qty*indegrideance[btn_mch].watter) <= supply.watter &&
-        (ord_qty*indegrideance[btn_mch].chocolate) <= supply.chocolate
-    ){
-        console.log(btn_mch);
-        sum_order[btn_mch] += ord_qty*1;
-        consume_supply.coffee += ord_qty * indegrideance[btn_mch].coffee;
-        consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_s;
-        consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_f;
-        consume_supply.watter += ord_qty * indegrideance[btn_mch].watter;
-        consume_supply.chocolate += ord_qty * indegrideance[btn_mch].chocolate;
+    if ( ord_qty >=1 ){
+        if( 
+            (ord_qty*indegrideance[btn_mch].coffee) <= supply.coffee && 
+            (ord_qty*indegrideance[btn_mch].milk) <= supply.milk && 
+            (ord_qty*indegrideance[btn_mch].watter) <= supply.watter &&
+            (ord_qty*indegrideance[btn_mch].chocolate) <= supply.chocolate
+        ){
+            console.log(btn_mch);
+            sum_order[btn_mch] += ord_qty*1;
+            consume_supply.coffee += ord_qty * indegrideance[btn_mch].coffee;
+            consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_s;
+            consume_supply.milk += ord_qty * indegrideance[btn_mch].milk_f;
+            consume_supply.watter += ord_qty * indegrideance[btn_mch].watter;
+            consume_supply.chocolate += ord_qty * indegrideance[btn_mch].chocolate;
 
-        supply.coffee -= ord_qty * indegrideance[btn_mch].coffee;
-        supply.milk -= ord_qty * indegrideance[btn_mch].milk_s;
-        supply.milk -= ord_qty * indegrideance[btn_mch].milk_f;
-        supply.watter -= ord_qty * indegrideance[btn_mch].watter;
-        supply.chocolate -= ord_qty * indegrideance[btn_mch].chocolate;
+            supply.coffee -= ord_qty * indegrideance[btn_mch].coffee;
+            supply.milk -= ord_qty * indegrideance[btn_mch].milk_s;
+            supply.milk -= ord_qty * indegrideance[btn_mch].milk_f;
+            supply.watter -= ord_qty * indegrideance[btn_mch].watter;
+            supply.chocolate -= ord_qty * indegrideance[btn_mch].chocolate;
 
-        //console.log(supply);
-        //console.log(sum_order);
-        $('#sum-order').bootstrapTable('removeAll');
-        $('#sum-order').bootstrapTable('load',pre_data_table_order());
-        $('#table-consume').bootstrapTable('removeAll');
-        $('#table-consume').bootstrapTable('load',pre_data_table_consume() );
-        init_btn_mch();
-        init_progress_bar();
-        //$('#display-status').bootstrapTable('removeAll');
-        $('#display-status').bootstrapTable('load',table_status );
-        $('#input-order-qty').val(1);
+            //console.log(supply);
+            //console.log(sum_order);
+            $('#sum-order').bootstrapTable('removeAll');
+            $('#sum-order').bootstrapTable('load',pre_data_table_order());
+            $('#table-consume').bootstrapTable('removeAll');
+            $('#table-consume').bootstrapTable('load',pre_data_table_consume() );
+            init_btn_mch();
+            init_progress_bar();
+            //$('#display-status').bootstrapTable('removeAll');
+            $('#display-status').bootstrapTable('load',table_status );
+            $('#input-order-qty').val(1);
+            Swal.fire( btn_mch.replace("_"," ") + " ready please take you cup ");
+        } else {
+            $('#display-status').bootstrapTable('removeAll');
+            table_status.push({status: "can't order " + ord_qty + " " + btn_mch.replace("_"," ") + " not enough indegrideance"});
+            $('#display-status').bootstrapTable('load',table_status );
+        }
     } else {
-         $('#display-status').bootstrapTable('removeAll');
-         table_status.push({status: "can't order " + ord_qty + " " + btn_mch.replace("_"," ") + " not enough indegrideance"});
-         $('#display-status').bootstrapTable('load',table_status );
+        Swal.fire( " order not allow under 0 ");
+        $('#input-order-qty').val(1);
     }
     setTimeout(remove_active,500,this);
 });
