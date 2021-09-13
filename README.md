@@ -1,4 +1,5 @@
 file :
+index.php adalah file untuk membantu 
 Home.Html adalah file utama untuk menampilkan 
 coffee.js file berisi function utama untuk proses prose
 ingredient.js berisi constanta inredient sehingga mudah dalam menggubah

@@ -27,6 +27,7 @@ const indegrideance = {
         coffee: 50,
         milk_s : 30,
         milk_f : 10,
+        milk :40,
         watter : 0,
         chocolate : 50
     },

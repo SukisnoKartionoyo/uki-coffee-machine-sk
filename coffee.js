@@ -64,7 +64,7 @@ $('.btn-lg.btn-outline-primary.bt-menu-mch').click(function(){
         (ord_qty*indegrideance[btn_mch].coffee) <= supply.coffee && 
         (ord_qty*indegrideance[btn_mch].milk) <= supply.milk && 
         (ord_qty*indegrideance[btn_mch].watter) <= supply.watter &&
-        (ord_qty*indegrideance[btn_mch].watter) <= supply.chocolate
+        (ord_qty*indegrideance[btn_mch].chocolate) <= supply.chocolate
     ){
         console.log(btn_mch);
         sum_order[btn_mch] += ord_qty*1;
@@ -290,8 +290,7 @@ function pre_data_table_consume (){
 
 function init_btn_mch() {
     $('#display-status').bootstrapTable('removeAll');
-    if (table_status.length == 0 ) { table_status = [{status :'Ready for order'}]; }
-    $('#display-status').bootstrapTable('load',table_status );
+
     Object.keys(indegrideance).forEach(key => {
         var btn_name = key;
         console.log(key);        // the name of the current key.
@@ -314,4 +313,6 @@ function init_btn_mch() {
             table_status.push({status: btn_name.replace('_',' ') +' is out of order please fill the indegrideance'});
         }
     });
+    if (table_status.length == 0 ) { table_status = [{status :'Ready for order'}]; }
+    $('#display-status').bootstrapTable('load',table_status );
 }
