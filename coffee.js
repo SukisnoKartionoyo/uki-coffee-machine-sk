@@ -57,8 +57,9 @@ $('.btn.btn-outline-primary.btn-supplay').click(function(){
         init_btn_mch();
     } else {
         Swal.fire( " can't is full ");
+        $('#input-fill-'+ fill_type).val('0');
     }
-    
+
     setTimeout(remove_active,500,this);
 });
 
