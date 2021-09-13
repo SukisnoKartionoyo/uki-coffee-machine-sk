@@ -1,9 +1,9 @@
 file :
-index.php adalah file untuk membantu 
+index.php adalah file untuk membantu agar heroku dapat mengakses data
 Home.Html adalah file utama untuk menampilkan 
 coffee.js file berisi function utama untuk proses prose
 ingredient.js berisi constanta inredient sehingga mudah dalam menggubah
-
+animation.js file untuk menyimpan semua js animasi 
 
 webpage terdiri atas : 
 Current Supply = menjelaskan jumlah ingredient yang masih tersedia

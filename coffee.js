@@ -46,14 +46,19 @@ $('.btn.btn-outline-primary.btn-supplay').click(function(){
 
    console.log (parseInt($('#input-fill-'+ fill_type).val()));
    console.log(max_supply[fill_type]);
-    if ( parseInt($('#input-fill-'+ fill_type).val()) + supply[fill_type] <= max_supply[fill_type]) {
-        supply[fill_type] += parseInt($('#input-fill-'+ fill_type).val());
-    } else{
-        Swal.fire( fill_type + ' is full');
+   if ( parseInt($('#input-fill-'+ fill_type).val()) <= 0) {
+        if ( parseInt($('#input-fill-'+ fill_type).val()) + supply[fill_type] <= max_supply[fill_type]) {
+            supply[fill_type] += parseInt($('#input-fill-'+ fill_type).val());
+        } else{
+            Swal.fire( fill_type + ' is full');
+        }
+        $('#input-fill-'+ fill_type).val('0');
+        init_progress_bar();
+        init_btn_mch();
+    } else {
+        Swal.fire( " can't is full ");
     }
-    $('#input-fill-'+ fill_type).val('0');
-    init_progress_bar();
-    init_btn_mch();
+    
     setTimeout(remove_active,500,this);
 });
 
